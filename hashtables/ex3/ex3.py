@@ -1,15 +1,17 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
-    return result
+    cache = dict()
+    for a in arrays:
+        for i in a:
+            if i in cache:
+                cache[i] += 1
+            else:
+                cache[i] = 1
+    return [i for i in cache if cache[i] == len(arrays)]
 
 
 if __name__ == "__main__":
-    arrays = []
 
+    arrays = list()
     arrays.append(list(range(1000000, 2000000)) + [1, 2, 3])
     arrays.append(list(range(2000000, 3000000)) + [1, 2, 3])
     arrays.append(list(range(3000000, 4000000)) + [1, 2, 3])
